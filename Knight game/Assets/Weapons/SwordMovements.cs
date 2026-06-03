@@ -15,9 +15,53 @@ public class SwordMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(1))
+        SwordInput();
+    }
+
+    void SwordInput()
+    {
+        if(Input.GetAxis("Mouse X") < 0  && Input.GetAxis("Mouse Y") < 0)
         {
-            
+            if (Input.GetMouseButton(0))
+            {
+                anim.Play("Attack Left");
+            } else if (Input.GetMouseButton(1))
+            {
+                anim.Play("Block Left");
+            }
+            return;
+        }
+
+        if(Input.GetAxis("Mouse X") > 0 && Input.GetAxis("Mouse Y") < 0)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                anim.Play("Attack Right");
+            } else if (Input.GetMouseButton(1))
+            {
+                anim.Play("Block Right");
+            }
+            return;
+        }
+
+        if(Input.GetAxis("Mouse Y") > 0)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                anim.Play("Attack Up");
+            } else if (Input.GetMouseButton(1))
+            {
+                anim.Play("Block Up");
+            }
+            return;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            anim.Play("Attack Straight");
+        } else
+        {
+            anim.Play("Idle Straight");
         }
     }
 }
