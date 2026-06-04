@@ -6,6 +6,7 @@ public class SwordMovements : MonoBehaviour
 {
     public Animator anim;
     private int stance;
+    private float timeSinceStanceSwitch = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,27 +22,35 @@ public class SwordMovements : MonoBehaviour
     
     void AttackBlock()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1)&& !anim.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("Attack"))
         {
             if (Input.GetAxis("Mouse X") < 0  && Input.GetAxis("Mouse Y") < 0)
             {
+                timeSinceStanceSwitch = 0;
                 stance = 1;
                 anim.Play("Block Left");
             } else if (Input.GetAxis("Mouse X") > 0 && Input.GetAxis("Mouse Y") < 0)
             {
+                timeSinceStanceSwitch = 0;
                 stance = 2;
                 anim.Play("Block Right");
             } else if (Input.GetAxis("Mouse Y") > 0)
             {
+                timeSinceStanceSwitch = 0;
                 stance = 3;
                 anim.Play("Block Up");
             } else
+            {
+                timeSinceStanceSwitch+=Time.deltaTime;
+            }
+            if (timeSinceStanceSwitch > 0.5)
             {
                 stance = 0;
                 anim.Play("Idle Straight");
             }
         } else if (Input.GetMouseButtonDown(0)  && !anim.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("Attack"))
         {
+            timeSinceStanceSwitch = 0;
             if (stance == 1)
             {
                 anim.Play("Attack Left");
