@@ -11,13 +11,13 @@ public class ActiveRagdollController : MonoBehaviour
 
     void Start()
     {
-        joints = new ConfigurableJoint[transforms.Count()-1];
+        //joints = new ConfigurableJoint[transforms.Count()-1];
         initialRotations = new Quaternion[transforms.Count()-1];
 
         for (int i = 0; i<joints.Count(); i++)
         {
             initialRotations[i] = transforms[i+1].rotation;
-            joints[i] = transforms[i+1].GetComponent<ConfigurableJoint>();
+            //joints[i] = transforms[i+1].GetComponent<ConfigurableJoint>();
         }
     }
 
@@ -25,7 +25,7 @@ public class ActiveRagdollController : MonoBehaviour
     {
         for (int i = 0; i<joints.Count(); i++)
         {
-            joints[i].targetRotation = transforms[i+1].rotation;
+            joints[i].targetRotation = transforms[i+1].localRotation;
         } 
     }
 }
