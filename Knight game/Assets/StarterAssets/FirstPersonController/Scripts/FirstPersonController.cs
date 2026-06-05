@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 namespace StarterAssets
 {
-	[RequireComponent(typeof(CharacterController))]
 #if ENABLE_INPUT_SYSTEM
 	[RequireComponent(typeof(PlayerInput))]
 #endif
@@ -62,13 +61,14 @@ namespace StarterAssets
 
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
+		private bool canJump;
 		private float _fallTimeoutDelta;
 
 	
 #if ENABLE_INPUT_SYSTEM
 		private PlayerInput _playerInput;
 #endif
-		private CharacterController _controller;
+		private Rigidbody _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
 
@@ -97,7 +97,7 @@ namespace StarterAssets
 
 		private void Start()
 		{
-			_controller = GetComponent<CharacterController>();
+			_controller = GetComponent<Rigidbody>();
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
 			_playerInput = GetComponent<PlayerInput>();
@@ -195,7 +195,8 @@ namespace StarterAssets
 			}
 
 			// move the player
-			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+			//_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+			_controller.velocity = new Vector3((inputDirection.normalized * _speed).x, _controller.velocity.y, (inputDirection.normalized * _speed).z);
 		}
 
 		private void JumpAndGravity()
@@ -208,14 +209,16 @@ namespace StarterAssets
 				// stop our velocity dropping infinitely when grounded
 				if (_verticalVelocity < 0.0f)
 				{
-					_verticalVelocity = -2f;
+					//_verticalVelocity = -2f;
 				}
 
 				// Jump
-				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+				if (_input.jump && canJump)
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
-					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+					//_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+					_controller.AddForce(JumpHeight*transform.up, ForceMode.Impulse);
+					canJump = false;
 				}
 
 				// jump timeout
@@ -226,6 +229,7 @@ namespace StarterAssets
 			}
 			else
 			{
+				canJump = true;
 				// reset the jump timeout timer
 				_jumpTimeoutDelta = JumpTimeout;
 
@@ -239,11 +243,6 @@ namespace StarterAssets
 				_input.jump = false;
 			}
 
-			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-			if (_verticalVelocity < _terminalVelocity)
-			{
-				_verticalVelocity += Gravity * Time.deltaTime;
-			}
 		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
