@@ -49,6 +49,8 @@ namespace StarterAssets
 		public float TopClamp = 90.0f;
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
+		public GameObject pointGoal;
+		public GameObject head;
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
@@ -144,7 +146,7 @@ namespace StarterAssets
 				_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
 				// Update Cinemachine camera target pitch
-				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
+				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(0, 0.0f, _cinemachineTargetPitch);
 
 				// rotate the player left and right
 				transform.Rotate(Vector3.up * _rotationVelocity);

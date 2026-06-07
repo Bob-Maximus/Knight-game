@@ -9,6 +9,11 @@ public class ActiveRagdollController : MonoBehaviour
     public ConfigurableJoint[] joints;
     private Quaternion[] initialRotations;
 
+    public bool balancing;
+    public Rigidbody hips;
+    public float legHeight;
+    public float upForce;
+
     void Start()
     {
         //joints = new ConfigurableJoint[transforms.Count()-1];
@@ -25,7 +30,25 @@ public class ActiveRagdollController : MonoBehaviour
     {
         for (int i = 0; i<joints.Count(); i++)
         {
-            joints[i].targetRotation = transforms[i+1].localRotation;
+            if (joints[i].gameObject.name=="Lower Back")
+            {
+                joints[i].SetTargetRotationLocal(Quaternion.Euler(90, 0, 0), joints[i].transform.rotation);
+                continue;
+            }
+            joints[i].SetTargetRotationLocal(transforms[i+1].transform.rotation, joints[i].transform.rotation);
         } 
+
+        if (balancing)
+        {
+            Balance();
+        }
+    }
+
+    void Balance()
+    {
+        if (Physics.Raycast(hips.transform.position, Vector3.down, legHeight, 3))
+        {
+            //hips.AddForce(Vector3.up*upForce);
+        }
     }
 }
