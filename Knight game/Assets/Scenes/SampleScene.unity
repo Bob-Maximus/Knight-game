@@ -143,7 +143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &104114967
 Transform:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 10
   m_AngularZLimit:
-    limit: 83.03093
+    limit: 177
     bounciness: 0
     contactDistance: 10
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -1749,7 +1749,7 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 93.28269
+    limit: 177
     bounciness: 0
     contactDistance: 10
   m_AngularZLimit:
@@ -1880,7 +1880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &789388077
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2603,7 +2603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigLayers:
-  - m_Rig: {fileID: 104114968}
+  - m_Rig: {fileID: 0}
     m_Active: 1
   m_Effectors: []
 --- !u!95 &1257422678
@@ -3198,7 +3198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transforms:
-  - {fileID: 2113132851}
   - {fileID: 582899393}
   - {fileID: 904393302}
   - {fileID: 1230214062}
@@ -4115,11 +4114,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!4 &2113132851 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 486835649316595931, guid: 0130df2ae9b4d6457868c2b16c9e82ff, type: 3}
-  m_PrefabInstance: {fileID: 1121114686}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2123056489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1843140497175881069, guid: 0130df2ae9b4d6457868c2b16c9e82ff, type: 3}
