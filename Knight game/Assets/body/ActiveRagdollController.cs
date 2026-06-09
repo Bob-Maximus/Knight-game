@@ -21,7 +21,7 @@ public class ActiveRagdollController : MonoBehaviour
 
         for (int i = 0; i<joints.Count(); i++)
         {
-            initialRotations[i] = transforms[i].rotation;
+            initialRotations[i] = transforms[i].localRotation;
             //joints[i] = transforms[i+1].GetComponent<ConfigurableJoint>();
         }
     }
@@ -32,11 +32,11 @@ public class ActiveRagdollController : MonoBehaviour
         {
             if (joints[i].gameObject.name=="Lower Back")
             {
-                joints[i].SetTargetRotationLocal(Quaternion.Euler(90, 0, 0), joints[i].transform.rotation);
+                //joints[i].SetTargetRotationLocal(Quaternion.Euler(90, 0, 0), joints[i].transform.rotation);
                 continue;
             }
             //joints[i].SetTargetRotationLocal(transforms[i].transform.rotation, joints[i].transform.rotation);
-            ConfigurableJointExtensions.SetTargetRotationLocal(joints[i], transforms[i].transform.rotation, initialRotations[i]);
+            ConfigurableJointExtensions.SetTargetRotationLocal(joints[i], transforms[i].localRotation, initialRotations[i]);
         } 
 
         if (balancing)
