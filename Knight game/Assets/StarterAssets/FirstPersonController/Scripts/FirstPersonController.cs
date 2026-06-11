@@ -71,6 +71,9 @@ namespace StarterAssets
 		private PlayerInput _playerInput;
 #endif
 		private Rigidbody _controller;
+		public ActiveRagdollController ragdoll;
+		public Rigidbody ragRoot;
+		public Transform animRoot;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
 
@@ -155,6 +158,8 @@ namespace StarterAssets
 
 		private void Move()
 		{
+			ragRoot.MovePosition(animRoot.position);
+
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -205,6 +210,8 @@ namespace StarterAssets
 		{
 			if (Grounded)
 			{
+				ragdoll.balancing=true;
+
 				// reset the fall timeout timer
 				_fallTimeoutDelta = FallTimeout;
 
@@ -231,6 +238,8 @@ namespace StarterAssets
 			}
 			else
 			{
+				ragdoll.balancing=false;
+				
 				canJump = true;
 				// reset the jump timeout timer
 				_jumpTimeoutDelta = JumpTimeout;
