@@ -36,8 +36,9 @@ public class ActiveRagdollController : MonoBehaviour
                 continue;
             }
             //joints[i].SetTargetRotationLocal(transforms[i].transform.rotation, joints[i].transform.rotation);
-            ConfigurableJointExtensions.SetTargetRotationLocal(joints[i], transforms[i].localRotation, initialRotations[i]);
+            ConfigurableJointExtensions.SetTargetRotationLocal(joints[i], transforms[i+1].localRotation, initialRotations[i+1]);
         } 
+        //transforms[0].position = hips.position;
 
         if (balancing)
         {
@@ -47,9 +48,6 @@ public class ActiveRagdollController : MonoBehaviour
 
     void Balance()
     {
-        if (Physics.Raycast(hips.transform.position, Vector3.down, legHeight, 3))
-        {
-            //hips.AddForce(Vector3.up*upForce);
-        }
+        
     }
 }

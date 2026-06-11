@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -152,13 +153,14 @@ namespace StarterAssets
 				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(0, 0.0f, _cinemachineTargetPitch);
 
 				// rotate the player left and right
-				transform.Rotate(Vector3.up * _rotationVelocity);
+				animRoot.Rotate(Vector3.up * _rotationVelocity);
+				ragRoot.MoveRotation(animRoot.rotation);
 			}
 		}
 
 		private void Move()
 		{
-			ragRoot.MovePosition(animRoot.position);
+			//ragRoot.MovePosition(animRoot.position);
 
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
@@ -204,6 +206,8 @@ namespace StarterAssets
 			// move the player
 			//_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 			_controller.velocity = new Vector3((inputDirection.normalized * _speed).x, _controller.velocity.y, (inputDirection.normalized * _speed).z);
+			//ragRoot.position=transform.position;
+			//ragRoot.rotation=animRoot.rotation;
 		}
 
 		private void JumpAndGravity()
