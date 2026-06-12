@@ -137,6 +137,8 @@ namespace StarterAssets
 
 		private void CameraRotation()
 		{
+			//ragRoot.transform.rotation = animRoot.rotation;
+			ragRoot.MoveRotation(animRoot.rotation);
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
 			{
@@ -154,13 +156,13 @@ namespace StarterAssets
 
 				// rotate the player left and right
 				animRoot.Rotate(Vector3.up * _rotationVelocity);
-				ragRoot.MoveRotation(animRoot.rotation);
+				//ragRoot.transform.rotation = animRoot.rotation;
 			}
 		}
 
 		private void Move()
 		{
-			//ragRoot.MovePosition(animRoot.position);
+			ragRoot.MovePosition(animRoot.position);
 
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;

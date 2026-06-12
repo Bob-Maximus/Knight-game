@@ -48,6 +48,6 @@ public class ActiveRagdollController : MonoBehaviour
 
     void Balance()
     {
-        
+        hips.AddForce(Vector3.up*upForce);
     }
 }
