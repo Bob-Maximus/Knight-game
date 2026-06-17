@@ -32,7 +32,7 @@ public class ActiveRagdollController : MonoBehaviour
         {
             if (joints[i].gameObject.name=="Lower Back")
             {
-                //joints[i].SetTargetRotationLocal(Quaternion.Euler(90, 0, 0), joints[i].transform.rotation);
+                //joints[i].SetTargetRotation(Quaternion.Euler(90, 0, 0), joints[i].transform.rotation);
                 continue;
             }
             //joints[i].SetTargetRotationLocal(transforms[i].transform.rotation, joints[i].transform.rotation);

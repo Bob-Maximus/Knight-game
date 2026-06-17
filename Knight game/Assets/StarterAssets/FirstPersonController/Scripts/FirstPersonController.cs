@@ -126,6 +126,9 @@ namespace StarterAssets
 		private void LateUpdate()
 		{
 			CameraRotation();
+			//ragRoot.Move(animRoot.position, animRoot.rotation);
+			ragRoot.transform.position = animRoot.position;
+			ragRoot.transform.rotation = animRoot.rotation;
 		}
 
 		private void GroundedCheck()
@@ -138,7 +141,7 @@ namespace StarterAssets
 		private void CameraRotation()
 		{
 			//ragRoot.transform.rotation = animRoot.rotation;
-			ragRoot.MoveRotation(animRoot.rotation);
+			//ragRoot.MoveRotation(animRoot.rotation);
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
 			{
@@ -155,14 +158,15 @@ namespace StarterAssets
 				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(0, 0.0f, _cinemachineTargetPitch);
 
 				// rotate the player left and right
-				animRoot.Rotate(Vector3.up * _rotationVelocity);
-				//ragRoot.transform.rotation = animRoot.rotation;
+				//animRoot.Rotate(Vector3.up * _rotationVelocity);
+				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
 		}
 
 		private void Move()
 		{
-			ragRoot.MovePosition(animRoot.position);
+			//ragRoot.MovePosition(animRoot.position);
+			//ragRoot.position=animRoot.position;
 
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
