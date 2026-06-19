@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Unity.Mathematics;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -75,6 +76,7 @@ namespace StarterAssets
 		public ActiveRagdollController ragdoll;
 		public Rigidbody ragRoot;
 		public Transform animRoot;
+		public Animator anim;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
 
@@ -128,6 +130,7 @@ namespace StarterAssets
 			CameraRotation();
 			//ragRoot.Move(animRoot.position, animRoot.rotation);
 			ragRoot.transform.position = animRoot.position;
+			//ragRoot.MovePosition(animRoot.position);
 			ragRoot.transform.rotation = animRoot.rotation;
 		}
 
@@ -138,6 +141,7 @@ namespace StarterAssets
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 		}
 
+		private Quaternion lookRotation;
 		private void CameraRotation()
 		{
 			//ragRoot.transform.rotation = animRoot.rotation;
@@ -155,12 +159,13 @@ namespace StarterAssets
 				_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
 				// Update Cinemachine camera target pitch
-				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(0, 0.0f, _cinemachineTargetPitch);
+				lookRotation = Quaternion.Euler(0, 0.0f, _cinemachineTargetPitch);
 
 				// rotate the player left and right
 				//animRoot.Rotate(Vector3.up * _rotationVelocity);
 				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
+			CinemachineCameraTarget.transform.localRotation = lookRotation;
 		}
 
 		private void Move()
@@ -207,7 +212,9 @@ namespace StarterAssets
 			{
 				// move
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
-			}
+				//anim.SetBool("Walking", true);
+			} //else anim.SetBool("Walking", false);
+			
 
 			// move the player
 			//_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
