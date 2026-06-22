@@ -161,7 +161,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000007450629, y: 0.053386316, z: 0.000000019557774}
+  m_ConnectedAnchor: {x: -8.770762e-14, y: 0.0533863, z: -0.000000038184226}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -481,7 +481,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -3.811088e-10, y: 0.04629613, z: -0.000000037311114}
+  m_ConnectedAnchor: {x: -3.8122938e-10, y: 0.046296097, z: 0.000000045809436}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -631,7 +631,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 2.5979219e-14, y: 0.04629613, z: 0.000000009429642}
+  m_ConnectedAnchor: {x: -3.08642e-14, y: 0.04629612, z: -0.000000023923352}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -1127,7 +1127,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0823, y: -0.11180004, z: -0.000000007450581}
+  m_ConnectedAnchor: {x: 0, y: 0.04488484, z: 0}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -1386,7 +1386,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 8.21565e-15, y: 0.02910506, z: 0.000000033527613}
+  m_ConnectedAnchor: {x: -7.15477e-15, y: 0.029105037, z: -0.000000033527613}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -1694,7 +1694,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -2.1261898e-10, y: 0.053386305, z: -0.00000004749745}
+  m_ConnectedAnchor: {x: -2.1274232e-10, y: 0.053386293, z: 0.000000016763806}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -2533,9 +2533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigLayers:
-  - m_Rig: {fileID: 0}
-    m_Active: 1
-  - m_Rig: {fileID: 0}
+  - m_Rig: {fileID: 1129287433}
     m_Active: 1
   m_Effectors: []
 --- !u!95 &1257422678
@@ -2888,7 +2886,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.055059172, z: -0.0000000037252903}
+  m_ConnectedAnchor: {x: 9.411474e-23, y: 0.055059213, z: 0.000000007450581}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -3245,7 +3243,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.055059172, z: -0.0000000037252903}
+  m_ConnectedAnchor: {x: 9.411474e-23, y: 0.055059213, z: 0.000000007450581}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -3407,7 +3405,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.055059172, z: -0.0000000037252903}
+  m_ConnectedAnchor: {x: 9.411474e-23, y: 0.055059213, z: 0.000000007450581}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -3650,7 +3648,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.029105045, z: -0.000000014901161}
+  m_ConnectedAnchor: {x: -3.9474583e-16, y: 0.029105041, z: 0.000000013038516}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -4280,7 +4278,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6145224532638616112, guid: 0130df2ae9b4d6457868c2b16c9e82ff, type: 3}
+  - {fileID: 2100000, guid: 15ff768cae08f12478989f95c8b1b488, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

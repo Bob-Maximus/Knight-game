@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class LegIK : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform legPosL;
+    public Transform newLegPosL;
 
-    // Update is called once per frame
+    public Transform legPosR;
+    public Transform newLegPosR;
+
     void Update()
     {
         

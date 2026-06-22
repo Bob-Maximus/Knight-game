@@ -212,8 +212,12 @@ namespace StarterAssets
 			{
 				// move
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
-				//anim.SetBool("Walking", true);
-			} //else anim.SetBool("Walking", false);
+				anim.SetBool("Walking", true);
+				anim.speed = targetSpeed/2;
+			} else {
+				anim.SetBool("Walking", false);
+				anim.speed = 1;
+			}
 			
 
 			// move the player
